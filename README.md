@@ -1,37 +1,41 @@
-# TECKIN TC100 Anyka AK3918 camera hacks
+# Предисловие
+Данный хак не является рабочим на 100% не все функции были проверены и некоторые компоненты могут выдавать ошибки в той или иной мере.
+В теории работает с любыми камерами на Anyka чипе (в данном варианте все работы проводятся на Anyka AK3918v300 - Victure PC440 Indoor Cam)
+Скопировано с репозитория по камере TECKIN TC100 (в ходе долгих разбирательств выяснил, что камеры похожи, разница только в чипе: v200/v300)
 
-Hacks for p2p-only camera that allow you to use rtsp/web-interface/ftp and other functions.
+# Victure PC440 Anyka AK3918 хаки для камер
+Хаки для p2p-only камеры, позволяющие использовать rtsp/web-интерфейс/ftp и другие функции.
 
-**NOTE: this hack doesn't modify or upgrade firmware - you can restore the original state of the camera at any time (hack work only with MicroSD-card!).**
+**ВНИМАНИЕ: этот хак не изменяет и не обновляет прошивку - вы можете восстановить исходное состояние камеры в любое время (хак работает только с MicroSD-картой!).**
 
-Supported camera model: **Teckin TC100 / Teckin Click** with Anyka AK3918 v300 CPU
-![Teckin TC100](/media/TeckinTC100.jpg)
+Поддерживаемые модели камер: **Victure PC440 Indoor Cam / Victure Click** с процессором Anyka AK3918 v300
+![Victure PC440](/media/VicturePC440.jpg)
 
-* https://www.teckinhome.com/products/teckin-tc100-wi-fi-smart-home-security-camera
+* https://de.govicture.com/products/victure-pc440-1080p-babyphone-2-4g-wifi-innenuberwachungskamera-monitor
 
-## How to install
-1. Prepare an MicroSD-card with FAT32 filesystem and allocation unit size 32K (16K and smaller unit size may running system into unstable condition)
-2. Copy all data to MicroSD-card
-3. Connect the camera to your WiFI network through Teckin app (Android/IOS). See IP-address of the camera in your WiFi-router settings (required to connect via http/rtsp).
-4. Place MicroSD-card in camera 
-5. Reboot camera
+## Как установить
+1. Подготовьте MicroSD-карту с файловой системой FAT32 и размером блока распределения 32K и более (16K и меньший размер блока может привести систему в нестабильное состояние).
+2. Скопируйте все данные на MicroSD-карту
+3. Подключите камеру к сети WiFI через приложение Victure (Android/IOS). Посмотрите IP-адрес камеры в настройках WiFi-роутера (требуется для подключения по http/rtsp).
+4. Установите в камеру карту памяти MicroSD. 
+5. Перезагрузите камеру
    
-Now you can connect to the camera via browser (**https://CAMERA-IP**), get RTSP-stream, download/upload files via FTP and many other things.
-**When hack is enabled, default Teckin cloud function will not be available.**
+Теперь вы можете подключаться к камере через браузер (**https://CAMERA-IP**), получать RTSP-поток, скачивать/загружать файлы по FTP и многое другое.
+**Когда хак включен, функция облака Teckin по умолчанию будет недоступна.**
 
-## How to uninstall
-To disable hacks: just remove MicroSD-card and reboot camera.
+## Как удалить
+Для отключения хаков: просто извлеките MicroSD-карту и перезагрузите камеру.
 
 ## Misc
-* Default camera **login/password: root/pass**
-* Change password for http/rtsp/ftp/telnet in web interface settings
-* Main stream rtsp url: **rtsp://CAMERA-IP:554/video0_unicast**
+* Камера по умолчанию **логин/пароль: root/pass**
+* Измените пароль для http/rtsp/ftp/telnet в настройках веб-интерфейса
+* url rtsp основного потока: **rtsp://CAMERA-IP:554/video0_unicast**
 * Sub stream rtsp url:  **rtsp://CAMERA-IP:554/video1_unicast**
-* Support ONVIF-discovery
-* Support loop video recording to MicroSD
-* Support H264/H265
-* Support audio
-* Manual connection to WiFi network (without Teckin cloud app): create file **wpa_supplicant.conf** in MicroSD-card and reboot.
-  See file content example in **wpa_supplicant.conf.dist** file: change ssid and psk to your WiFi name and password.
+* Поддержка ONVIF-обнаружения
+* Поддержка циклической записи видео на MicroSD
+* Поддержка H264/H265
+* Поддержка аудио
+* Ручное подключение к сети WiFi (без облачного приложения Teckin): создайте файл **wpa_supplicant.conf** на MicroSD-карте и перезагрузитесь.
+  Смотрите пример содержимого файла **wpa_supplicant.conf.dist**: измените ssid и psk на ваше имя и пароль WiFi.
 
 
